@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteCond %{REQUEST_URI} !^/build/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /build/$1
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteRule ^(/)?$ build/index.html [L]
+
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteRule ^(/api)?$ public/index.php [L]
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteRule ^(/doc)?$ public/index.php [L]
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteRule ^(/secured)?$ public/index.php [L]
